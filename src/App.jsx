@@ -8,17 +8,29 @@ function App(){
   
   return (
     <main>
-      <h1>The Wayfinder</h1>
-      <p>Welcome, {playerName}. Your journey through the Bible begins here.</p>
+      {!hasStarted ? (
+        <>
+          <h1>The Wayfinder</h1>
+          <p>Welcome, {playerName}. Your journey begins here.</p>
 
-      <button onClick={() => setHasStarted(true)}>
-        Begin Journey
-      </button>
+          <button onClick={() => setHasStarted(true)}>
+            Begin Journey
+          </button>
+        </>
+      ) : (
+        <>
+          <h1>Chapter 1: The Lost Scroll</h1>
+          <p>
+            The road is quiet as you enter a small town at the edge of the desert.
+          </p>
+          <p>
+            Near the town gate, you notice torn pieces of parchment scattered in
+            the dust.
+          </p>
 
-      <p>
-        Has the journey started? {hasStarted ? 'Yes' : 'No'}
-      </p>
-      
+          <button>Examine the parchment</button>
+        </>
+      )}
     </main>
   )
 }
