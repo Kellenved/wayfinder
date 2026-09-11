@@ -5,6 +5,8 @@ function App(){
   const playerName = 'Traveler'
   
   const [hasStarted, setHasStarted] = useState(false)
+
+  const [hasExamined, setHasExamined] = useState(false)
   
   return (
     <main>
@@ -28,7 +30,14 @@ function App(){
             the dust.
           </p>
 
-          <button>Examine the parchment</button>
+          <button onClick={() => setHasExamined(true)}>Examine the parchment</button>
+
+          {hasExamined && (
+            <p>
+              Faded symbols cover the parchment. Whatever this was,
+              it appears to be part of something much larger.
+            </p>
+          )}
         </>
       )}
     </main>
