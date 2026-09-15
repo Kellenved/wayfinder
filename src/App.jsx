@@ -7,6 +7,8 @@ function App(){
   const [hasStarted, setHasStarted] = useState(false)
 
   const [hasExamined, setHasExamined] = useState(false)
+
+  const [selectedAnswer, setSelectedAnswer] = useState(null)
   
   return (
     <main>
@@ -30,13 +32,46 @@ function App(){
             the dust.
           </p>
 
-          <button onClick={() => setHasExamined(true)}>Examine the parchment</button>
+          <button onClick={() => setHasExamined(true)}>
+            Examine the parchment
+          </button>
 
           {hasExamined && (
-            <p>
-              Faded symbols cover the parchment. Whatever this was,
-              it appears to be part of something much larger.
-            </p>
+            <>
+              <p>
+                Faded symbols cover the parchment. Whatever this was,
+                it appears to be part of something much larger.
+              </p>
+
+              <h2>What do these markings look like?</h2>
+
+              <button onClick={() => setSelectedAnswer('name')}>
+                A person's name
+              </button>
+
+              <button onClick={() => setSelectedAnswer('place')}>
+                A place
+              </button>
+
+              <button onClick={() => setSelectedAnswer('reference')}>
+                A Bible reference
+              </button>
+
+              {selectedAnswer === 'name' && (
+                <p>Not quite. Look at the pattern again.</p>
+              )}
+
+              {selectedAnswer === 'place' && (
+                <p>Not quite. These markings seem more structured than a place name.</p>
+              )}
+
+              {selectedAnswer === 'reference' && (
+                <p>
+                  Correct! The markings form a Bible reference:
+                  <strong> Luke 10:25–37</strong>.
+                </p>
+              )}
+            </>
           )}
         </>
       )}
