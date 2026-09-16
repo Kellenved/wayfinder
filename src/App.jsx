@@ -1,5 +1,6 @@
 import { useState } from "react";
 import './App.css'
+import parchmentImage from './assets/parchment.png'
 
 function App(){
 
@@ -45,11 +46,22 @@ function App(){
               </p>
 
               <div className="parchment-container">
-                <div className="parchment">
-                  <div className="parchment-tear tear-left"></div>
-                  <div className="parchment-tear tear-right"></div>
+                <img
+                  className="parchment-image"
+                  src={parchmentImage}
+                  alt="An old damaged parchment"
+                />
 
-                  <p className="parchment-book">LU_E</p>
+                <div className="parchment-text">
+                  <p className="parchment-book">
+                    LU
+                    {selectedAnswer === 'reference' ? (
+                      <span className="revealed-letter">K</span>
+                    ) : (
+                      <span>_</span>
+                    )}
+                    E
+                  </p>
                   <p className="parchment-chapter">10</p>
                   <p className="parchment-verses">25 - 37</p>
                 </div>
@@ -79,8 +91,7 @@ function App(){
 
               {selectedAnswer === 'reference' && (
                 <p>
-                  Correct! The markings form a Bible reference:
-                  <strong> Luke 10:25–37</strong>.
+                  Correct! The markings form a Bible reference!
                 </p>
               )}
             </>

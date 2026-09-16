@@ -1,56 +1,83 @@
 .parchment-container{
+  position: relative;
+
+  width: 500px;
+  max-width: 90%;
   margin: 32px auto;
-  width: fit-content;
 
   animation: parchment-float 2.5s ease-in-out infinite;
 }
 
-.parchment{
-  position: relative;
-  width: 240px;
-  padding: 28px 24px;
+.parchment-image{
+  display: block;
+  width: 100%;
+  height: auto;
+}
 
-  background: #d6b56d;
-  border: 4px solid #4b321f;
+.parchment-text{
+  position: absolute;
 
-  box-shadow: 
-    4px 4px 0 #2c1c12,
-    inset 4px 4px 0 #efd994,
-    inset -4px -4px 0 #9b743e;
-  
+  top: 50%;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
+
   color: #3a2719;
   text-align: center;
 }
 
-.parchment p{
-  margin: 8px;
+.parchment-text p{
+  margin: 5px 0;
+  line-height: 1;
 }
 
 .parchment-book{
-  font-size: 26px;
+  font-size: 32px;
   font-weight: bold;
-  letter-spacing: 7px;
+  letter-spacing: 8px;
 }
 
 .parchment-chapter{
-  font-size: 32px;
+  font-size: 38px;
   font-weight: bold;
 }
 
 .parchment-verses{
-  font-size: 22px;
+  font-size: 26px;
 }
 
-@keyframes parchment-float{
-  0%{
+.revealed-letter{
+  display: inline-block;
+  animation: reveal-letter 0.6s ease-out;
+}
+
+@keyframes parchment-float {
+  0% {
     transform: translateY(0);
   }
 
-  50%{
+  50% {
     transform: translateY(-6px);
   }
 
-  100%{
+  100% {
     transform: translateY(0);
+  }
+}
+
+@keyframes reveal-letter {
+  0%{
+    opacity: 0;
+    transform: scale(2);
+  }
+
+  50%{
+    opacity: 1;
+    transform: scale(0.8);
+  }
+
+  100%{
+    opacity: 1;
+    transform: scale(1);
   }
 }
