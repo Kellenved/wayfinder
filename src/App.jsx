@@ -1,4 +1,5 @@
 import { useState } from "react";
+import './App.css'
 
 function App(){
 
@@ -42,6 +43,17 @@ function App(){
                 Faded symbols cover the parchment. Whatever this was,
                 it appears to be part of something much larger.
               </p>
+
+              <div className="parchment-container">
+                <div className="parchment">
+                  <div className="parchment-tear tear-left"></div>
+                  <div className="parchment-tear tear-right"></div>
+
+                  <p className="parchment-book">LU_E</p>
+                  <p className="parchment-chapter">10</p>
+                  <p className="parchment-verses">25 - 37</p>
+                </div>
+              </div>
 
               <h2>What do these markings look like?</h2>
 
