@@ -1,6 +1,6 @@
 import { useState } from "react";
 import './App.css'
-import parchmentImage from './assets/parchment.png'
+import Parchment from './components/Parchment'
 
 function App(){
 
@@ -45,27 +45,7 @@ function App(){
                 it appears to be part of something much larger.
               </p>
 
-              <div className="parchment-container">
-                <img
-                  className="parchment-image"
-                  src={parchmentImage}
-                  alt="An old damaged parchment"
-                />
-
-                <div className="parchment-text">
-                  <p className="parchment-book">
-                    LU
-                    {selectedAnswer === 'reference' ? (
-                      <span className="revealed-letter">K</span>
-                    ) : (
-                      <span>_</span>
-                    )}
-                    E
-                  </p>
-                  <p className="parchment-chapter">10</p>
-                  <p className="parchment-verses">25 - 37</p>
-                </div>
-              </div>
+              <Parchment solved={selectedAnswer === 'reference'}/>
 
               <h2>What do these markings look like?</h2>
 
